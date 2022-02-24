@@ -69,7 +69,6 @@ void tim2_isr(void)
 int main(void)
 {
     // Setup main clock, using external 8MHz crystal 
-    //rcc_clock_setup_in_hse_8mhz_out_72mhz();
     rcc_clock_setup_pll(&rcc_hse_configs[RCC_CLOCK_HSE8_72MHZ]);
     gpio_setup();
     tim_setup();
