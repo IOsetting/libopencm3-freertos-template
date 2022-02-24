@@ -3,10 +3,6 @@
 #include <libopencm3/stm32/gpio.h>
 #include <libopencm3/stm32/timer.h>
 
-#ifndef ARRAY_LEN
-#define ARRAY_LEN(array) (sizeof((array))/sizeof((array)[0]))
-#endif
-
 #define LED1_PORT   GPIOC
 #define LED1_PIN    GPIO13
 
