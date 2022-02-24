@@ -34,7 +34,7 @@
             "problemMatcher": []
         },
         {
-            "label": "build download",
+            "label": "download",
             "type": "shell",
             "command": "st-flash --reset write user/app.bin 0x8000000",
             "problemMatcher": []

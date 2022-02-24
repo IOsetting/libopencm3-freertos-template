@@ -4,7 +4,7 @@
             "name": "Linux",
             "includePath": [
                 "${workspaceFolder}/**",
-                "${workspaceFolder}/libopencm3/include"
+                "${workspaceFolder}/freertos/portable/GCC/ARM_CM3"
             ],
             "defines": [
                 "STM32F1"
