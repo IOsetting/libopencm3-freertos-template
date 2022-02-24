@@ -1,0 +1,43 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "libopencm3 build",
+            "type": "shell",
+            "command": "PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- TARGETS=stm32/f1 make -C libopencm3",
+            "problemMatcher": []
+        },
+        {
+            "label": "libopencm3 clean",
+            "type": "shell",
+            "command": "make -C libopencm3 clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "build with freertos",
+            "type": "shell",
+            "command": "FREERTOS=1 make -C user",
+            "problemMatcher": []
+        },
+        {
+            "label": "build",
+            "type": "shell",
+            "command": "make -C user",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "make -C user clean",
+            "problemMatcher": []
+        },
+        {
+            "label": "build download",
+            "type": "shell",
+            "command": "st-flash --reset write user/app.bin 0x8000000",
+            "problemMatcher": []
+        }
+    ]
+}

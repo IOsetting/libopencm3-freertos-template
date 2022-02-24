@@ -1,0 +1,5 @@
+build/
+.vscode/
+user/*.bin
+user/*.elf
+user/*.ld
