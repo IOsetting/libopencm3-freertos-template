@@ -50,6 +50,15 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- make -C li
 PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- make -C user
 ```
 
+# 示例代码
+
+在*examples*目录下有一些示例代码, 分为*非rtos*和*rtos*两类, 如果要运行示例代码, 只需要选择示例并将对应的代码复制到*user*目录下
+然后编译. 对于rtos示例, 需要带上编译参数`FREERTOS=1`, 例如
+```bash
+PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- FREERTOS=1 make -C user
+```
+
+
 # 目录
 
 * user/  
@@ -58,6 +67,8 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- make -C us
   FreeRTOS  kernel 代码
 * libopencm3/  
   libopencm3 代码
+* examples/
+  non-os 和 rtos 示例代码
 
 # 授权
 
