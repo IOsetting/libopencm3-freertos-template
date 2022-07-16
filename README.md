@@ -67,7 +67,7 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- FREERTOS=1
   contains FreeRTOS kernel source code
 * libopencm3/  
   contains libopencm3 source code
-* examples/
+* examples/  
   non-os and rtos demo codes
 
 # License

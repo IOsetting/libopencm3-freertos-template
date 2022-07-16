@@ -27,14 +27,14 @@ void vApplicationStackOverflowHook(
 }
 
 void usart1_isr(void) {
-	uint8_t data;
-	/* Check if we were called because of RXNE. */
-	if (((USART_CR1(USART1) & USART_CR1_RXNEIE) != 0) &&
-	    ((USART_SR(USART1) & USART_SR_RXNE) != 0)) {
-		/* Retrieve the data from the peripheral. */
-		data = usart_recv(USART1);
+    uint8_t data;
+    /* Check if we were called because of RXNE. */
+    if (((USART_CR1(USART1) & USART_CR1_RXNEIE) != 0) &&
+        ((USART_SR(USART1) & USART_SR_RXNE) != 0)) {
+        /* Retrieve the data from the peripheral. */
+        data = usart_recv(USART1);
         xQueueSendFromISR(uart_txq, &data, NULL);
-	}
+    }
 }
 
 static void gpio_setup(void) {

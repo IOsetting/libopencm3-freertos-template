@@ -36,12 +36,12 @@ void vApplicationStackOverflowHook(
  *********************************************************************/
 static void timer_setup(void)
 {
-	rcc_periph_clock_enable(RCC_TIM2);
-	rcc_periph_reset_pulse(RST_TIM2);
-	timer_set_mode(TIM2, TIM_CR1_CKD_CK_INT_MUL_4, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
-	timer_set_prescaler(TIM2, 36000); // Clock counts every 0.5 msec
-	timer_one_shot_mode(TIM2);
-	timer_set_period(TIM2, 200); // 200 * 0.5 msec => 100 msec
+    rcc_periph_clock_enable(RCC_TIM2);
+    rcc_periph_reset_pulse(RST_TIM2);
+    timer_set_mode(TIM2, TIM_CR1_CKD_CK_INT_MUL_4, TIM_CR1_CMS_EDGE, TIM_CR1_DIR_UP);
+    timer_set_prescaler(TIM2, 36000); // Clock counts every 0.5 msec
+    timer_one_shot_mode(TIM2);
+    timer_set_period(TIM2, 200); // 200 * 0.5 msec => 100 msec
 }
 
 /*********************************************************************

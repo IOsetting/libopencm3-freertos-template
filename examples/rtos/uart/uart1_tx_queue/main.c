@@ -1,11 +1,11 @@
 /* Task based UART demo, using queued communication.
  *
- *    TX:    A9  ====> RX of TTL serial
- *    RX:    A10 <==== TX of TTL serial (not used)
- *    CTS:    A11 (not used)
- *    RTS:    A12 (not used)
- *    Config:    8N1
- *    Baud:    38400
+ *    TX:       A9  ====> RX of TTL serial
+ *    RX:       A10 <==== TX of TTL serial (not used)
+ *    CTS:      A11 (not used)
+ *    RTS:      A12 (not used)
+ *    Config:   8N1
+ *    Baud:     38400
  * Caution:
  *    Not all GPIO pins are 5V tolerant, so be careful to
  *    get the wiring correct.
@@ -126,7 +126,7 @@ main(void) {
         GPIO_MODE_OUTPUT_2_MHZ,
         GPIO_CNF_OUTPUT_PUSHPULL,
         GPIO12);
-	// Turn LED off
+    // Turn LED off
     gpio_set(GPIOB, GPIO12);
     gpio_set(GPIOC, GPIO13);
 

@@ -67,7 +67,7 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- FREERTOS=1
   FreeRTOS  kernel 代码
 * libopencm3/  
   libopencm3 代码
-* examples/
+* examples/  
   non-os 和 rtos 示例代码
 
 # 授权
