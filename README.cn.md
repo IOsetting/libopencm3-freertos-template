@@ -4,8 +4,29 @@
 
 # 前提
 
-1. 安装 GNU Make
-1. 安装 GCC ARM Toolchains
+## 1. 安装 GNU Make
+
+```bash
+sudo apt install make
+```
+
+## 2. 安装 GCC ARM Toolchains
+
+从ARM网站下载工具链 [https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads)
+
+根据操作系统选择 *AArch32 bare-metal target (arm-none-eabi)* 版本
+
+解压, 移动, 设置权限
+```bash
+tar xvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 
+cd /opt/gcc-arm/
+sudo mv ~/Backup/linux/gcc-arm-none-eabi-10.3-2021.10/ .
+sudo chown -R root:root gcc-arm-none-eabi-10.3-2021.10/
+```
+检查版本
+```bash
+/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc --version
+```
 
 # 使用说明
 
@@ -13,6 +34,11 @@
 可以运行 ```git submodule update --init``` 进行初始化(仅需要运行一次)
 ```bash
 git clone --recurse-submodules https://github.com/IOsetting/libopencm3-freertos-template.git your-project
+```
+如果克隆过程中出问题, 进入到目录下用下面的命令可以重新导出子模块
+```bash
+cd your-project
+git submodule update --init --recursive
 ```
 编译 libopencm3, 将命令中的 `PREFIX=..` 替换成你的工具链路径
 ```bash
@@ -26,9 +52,12 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- make -C us
 
 # 目录
 
-* user/ 用户应用目录
-* freertos/ FreeRTOS kernel 代码
-* libopencm3/ libopencm3 代码
+* user/  
+  用户应用目录
+* freertos/  
+  FreeRTOS  kernel 代码
+* libopencm3/  
+  libopencm3 代码
 
 # 授权
 

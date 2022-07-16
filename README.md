@@ -4,8 +4,30 @@ Easy "clone and go" repository for a libopencm3 + FreeRTOS based project.
 
 # Prerequisites
 
-1. Install GNU Make
-1. Install GCC ARM Toolchains
+## 1. Install GNU Make
+
+```bash
+sudo apt install make
+```
+
+## 2. Install GCC ARM Toolchains
+
+Download the toolchans from [https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads](https://developer.arm.com/tools-and-software/open-source-software/developer-tools/gnu-toolchain/downloads)
+
+Choose *AArch32 bare-metal target (arm-none-eabi)* under your host system.
+
+Extract the compressed file, move it to /opt and set the proper permissions.
+
+```bash
+tar xvf gcc-arm-none-eabi-10.3-2021.10-x86_64-linux.tar.bz2 
+cd /opt/gcc-arm/
+sudo mv ~/Backup/linux/gcc-arm-none-eabi-10.3-2021.10/ .
+sudo chown -R root:root gcc-arm-none-eabi-10.3-2021.10/
+```
+Check the version
+```bash
+/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi-gcc --version
+```
 
 # Instructions
 
@@ -13,6 +35,11 @@ Checkout, if you have an older git, or got ahead of yourself and skipped the ```
 you can fix things by running ```git submodule update --init``` (This is only needed once)
 ```bash
 git clone --recurse-submodules https://github.com/IOsetting/libopencm3-freertos-template.git your-project
+```
+In case anything goes wrong when cloning the submodules
+```bash
+cd your-project
+git submodule update --init --recursive
 ```
 Build libopencm3, replace `PREFIX=..` with your toolchains path
 ```bash
@@ -26,9 +53,12 @@ PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- make -C us
 
 # Directories
 
-* user/ contains your application
-* freertos/ contains FreeRTOS kernel source code
-* libopencm3/ contains libopencm3 source code
+* user/  
+  contains your application
+* freertos/  
+  contains FreeRTOS kernel source code
+* libopencm3/  
+  contains libopencm3 source code
 
 # License
 
