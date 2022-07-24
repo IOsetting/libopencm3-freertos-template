@@ -5,7 +5,7 @@
  *    CTS:      A11 (not used)
  *    RTS:      A12 (not used)
  *    Config:   8N1
- *    Baud:     38400
+ *    Baud:     115200
  * Caution:
  *    Not all GPIO pins are 5V tolerant, so be careful to
  *    get the wiring correct.
@@ -71,10 +71,11 @@ uart_task(void *args __attribute__((unused))) {
             while ( !usart_get_flag(USART1,USART_SR_TXE) )
                 taskYIELD();    // Yield until ready
             usart_send(USART1,ch);
+            // Toggle LED to show signs of life
+            gpio_toggle(GPIOB,GPIO12);
+            gpio_toggle(GPIOC,GPIO13);
         }
-        // Toggle LED to show signs of life
-        gpio_toggle(GPIOB,GPIO12);
-        gpio_toggle(GPIOC,GPIO13);
+        
     }
 }
 
