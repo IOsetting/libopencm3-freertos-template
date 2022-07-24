@@ -1,4 +1,4 @@
-ARM_TOOCHAIN 	?= /opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin
+ARM_TOOCHAIN 	?= /opt/gcc-arm/gcc-arm-11.2-2022.02-x86_64-arm-none-eabi/bin
 PREFIX 			?= $(ARM_TOOCHAIN)/arm-none-eabi-
 OPENCM3_DIR		=../libopencm3
 FREERTOS_DIR	=../freertos

@@ -4,6 +4,18 @@
     "version": "2.0.0",
     "tasks": [
         {
+            "label": "clean, build with freertos, download",
+            "type": "shell",
+            "command": "make -C user clean;FREERTOS=1 make -C user;st-flash --reset write build/app.bin 0x8000000",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean, build with freertos",
+            "type": "shell",
+            "command": "make -C user clean;FREERTOS=1 V=1 make -C user",
+            "problemMatcher": []
+        },
+        {
             "label": "libopencm3 build",
             "type": "shell",
             "command": "PREFIX=/opt/gcc-arm/gcc-arm-none-eabi-10.3-2021.10/bin/arm-none-eabi- TARGETS=stm32/f1 make -C libopencm3",
